@@ -1,6 +1,9 @@
 function _LoadData(){
 	const characters = Campaign.characters.models.findAll(
-	(character) => character.attributes?.inplayerjournals !== "" || character.attributes?.mancerstep === "lp-welcome" || character.attributes?.mancerstep === "l1-welcome"
+	(character) => character.attributes?.inplayerjournals !== "" 
+	|| character.attributes?.mancerstep === "lp-welcome" 
+	|| character.attributes?.mancerstep === "l1-welcome"
+	|| character.attributes?.mancerstep === "l1-summary"
 	);
 
 	const parsedData = characters.map(async (model) => {
