@@ -5,6 +5,11 @@ function _LoadData(){
 
 	const parsedData = characters.map(async (model) => {
 	try {
+		if(window.FILTER_NAMES.length > 0){
+			if(!window.FILTER_NAMES.includes(model.attributes.name)){
+				return
+			}
+		}
 		if (!model.attribs.backboneFirebase) {
 		model.attribs.backboneFirebase = new BackboneFirebase(
 			model.attribs
@@ -132,6 +137,7 @@ function _LoadData(){
 				"stealth": getByName("stealth_bonus") ?? 0,
 				"survival": getByName("survival_bonus") ?? 0,
 			},
+
 			items: items,
 			spells: spells,
 			traits: traits,
@@ -166,4 +172,5 @@ function _LoadData(){
 		console.log(data);
 	});
 }
+window.FILTER_NAMES = []
 _LoadData()
