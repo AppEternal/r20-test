@@ -63,7 +63,7 @@ function _LoadData(){
 			},
 			details:{
 				"hp": getByName("hp"),
-				"maxhp": getByNameMax("maxhp"),
+				"maxhp": getByNameMax("hp"),
 				"speed": getByName("speed"),
 				"ac": getByName("ac"),
 				"level": getByName("level"),
