@@ -172,5 +172,4 @@ function _LoadData(){
 		console.log(data);
 	});
 }
-window.FILTER_NAMES = []
 _LoadData()
