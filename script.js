@@ -165,10 +165,11 @@ function _LoadData(){
 		};
 	} catch (error) {
 		console.error(error);
-		return null;
+		return undefined;
 	}
 	});
 	Promise.all(parsedData).then((data) => {
+		data = data.filter((item) => item !== undefined);
 		console.log(data);
 	});
 }
