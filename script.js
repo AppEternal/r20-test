@@ -69,8 +69,8 @@ function _LoadData(){
 				"level": getByName("level"),
 				"alignment": getByName("alignment"),
 				"weight": getByName("weighttotal"),
-				"spell save": getByName("spell_save_dc"),
-				"spell attack": getByName("spell_attack_bonus"),
+				"spell Save": getByName("spell_save_dc"),
+				"spell Attack": getByName("spell_attack_bonus"),
 			},
 			money:{
 				"copper": getByName("cp") ?? 0,
