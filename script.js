@@ -5,7 +5,7 @@ function _LoadData(){
 
 	const parsedData = characters.map(async (model) => {
 	try {
-		if(window.FILTER_NAMES.length > 0){
+		if(window.FILTER_NAMES && window.FILTER_NAMES?.length > 0){
 			if(!window.FILTER_NAMES.includes(model.attributes.name)){
 				return
 			}
