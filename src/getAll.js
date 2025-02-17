@@ -13,7 +13,10 @@ if (!window._INTERCEPT) {
 window._INTERCEPT.handleIntercept = async (data) => {
 	try {
 		const json = JSON.parse(data);
-
+		console.log("raw Events", json);
+		if (json.d?.b?.p.includes("/campaign/turnorder")) {
+			//return await queueRoll(json, "turnorder");
+		}
 		if (json.d?.b?.d?.mancerdata) {
 			//console.log("json", json);
 			//return await queueRoll(json, "mancerdata");
@@ -105,6 +108,8 @@ window._INTERCEPT.displayRolls = async () => {
 			rollText = `${JSON.stringify(rolls)}`;
 		} else if (item.type === "mancerdata") {
 			rollText = "Mancer Data";
+		} else if (item.type === "turnorder") {
+			rollText = "Turn Order";
 		} else {
 			console.log("item", item);
 		}
