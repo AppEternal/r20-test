@@ -87,7 +87,6 @@ window._INTERCEPT.handleIntercept = async (data) => {
 		}
 	}
 };
-
 window._INTERCEPT.displayRolls = async () => {
 	const container = $("#displayRolls");
 	container.empty();
@@ -141,7 +140,6 @@ window._INTERCEPT.displayRolls = async () => {
 		window._INTERCEPT.updateCountdowns();
 	}
 };
-
 window._INTERCEPT.updateCountdowns = () => {
 	$(".countdown").each(function () {
 		const $this = $(this);
