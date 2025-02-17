@@ -1,25 +1,17 @@
 <div
-	class="ui-dialog ui-widget ui-widget-content draggable-element ui-corner-all initiativedialog ui-draggable ui-resizable ui-dialog-buttons"
-	style="
-		position: fixed;
-		top: 50%;
-		left: 50%;
-		width: 100px;
-		height: 100px;
-		background: white;
-		border: 1px solid black;
-		padding: 10px;
-		cursor: move;
-		z-index: 10000;
-	"
+	class="ui-dialog ui-widget ui-widget-content r20-draggable-element ui-corner-all initiativedialog ui-draggable ui-resizable ui-dialog-buttons"
+	style="position: fixed !important; top: 50%; left: 50%; z-index: 20000 !important"
 >
 	<div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix ui-draggable-handle">
-		<span id="ui-id-10" class="ui-dialog-title">Turn Order</span>
-		<a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button">
+		<span id="ui-id-10" class="ui-dialog-title">Role Capture</span>
+		<a href="#" class="ui-dialog-titlebar-close ui-corner-all r20-deleteSelf" role="button">
 			<span class="ui-icon ui-icon-closethick">close</span>
 		</a>
 	</div>
-	<p>rejecting in <span id="timer"></span> seconds...</p>
-	<button id="confirmYes" class="button" style="padding: 10px">Yes</button>
-	<button id="confirmNo" class="button" style="padding: 10px">No</button>
+	<p><span id="displayRolls"></span></p>
+	<li style="display: flex; align-items: center; justify-content: space-between; padding: 4px 0">
+		<button class="btn btn-danger rejectAll" style="margin-left: 8px">Reject All</button>
+		<button class="btn btn-danger" id="toggle-intercept" type="button">Disabled</button>
+		<button class="btn btn-success acceptAll" style="margin-right: 8px">Accept All</button>
+	</li>
 </div>
