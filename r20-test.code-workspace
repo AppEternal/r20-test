@@ -1,0 +1,24 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		//"terminal.integrated.cwd": "./services",
+		"editor.foldingStrategy": "auto",
+		"editor.folding": true,
+		"editor.tabSize": 3,
+		"editor.insertSpaces": true,
+		"editor.detectIndentation": false,
+		"vue.inlayHints.optionsWrapper": false,
+		"editor.bracketPairColorization.enabled": true,
+		"editor.guides.bracketPairs": true,
+		"editor.formatOnSave": true,
+		"editor.codeActionsOnSave": ["source.fixAll.eslint"],
+		"indentRainbow.colorOnWhiteSpaceOnly": false,
+		"indentRainbow.ignoreErrorLanguages": ["markdown", "haskell", "vue"],
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"cSpell.words": ["checkperiod", "deepmerge", "Pinia", "resave", "tickettool", "Vite", "workerpool"]
+	}
+}
