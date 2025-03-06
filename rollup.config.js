@@ -1,23 +1,37 @@
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
-import stringPlugin from "rollup-plugin-string"; // changed import
+import stringPlugin from "rollup-plugin-string";
 import { terser } from "rollup-plugin-terser";
 
-export default {
-	input: "src/getAll.js",
-	output: {
-		file: "dist/bundle.js",
-		format: "iife",
-		name: "bundle",
-	},
-	plugins: [
-		resolve(),
-		commonjs(),
-		stringPlugin({
-			// updated usage
-			// Process all html files in the project folder
-			include: "**/*.html",
-		}),
-		terser(), // added minification
-	],
-};
+// Define shared plugins to avoid duplication
+const sharedPlugins = [
+  resolve(),
+  commonjs(),
+  stringPlugin({
+    include: "**/*.html",
+  }),
+  terser(),
+];
+
+export default [
+  {
+    // First bundle configuration
+    input: "src/getAll.js",
+    output: {
+      file: "dist/bundle.js",
+      format: "iife",
+      name: "bundle1",
+    },
+    plugins: sharedPlugins,
+  },
+  {
+    // Second bundle configuration
+    input: "src/roll18/roll18.js",
+    output: {
+      file: "dist/bundle18.js",
+      format: "iife",
+      name: "bundle2",
+    },
+    plugins: sharedPlugins,
+  }
+];
