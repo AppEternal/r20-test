@@ -15,39 +15,35 @@ window._INTERCEPT.handleIntercept = async (data) => {
 	try {
 		const json = JSON.parse(data);
 		if (json.d?.b?.d?.content && json.d?.b?.d?.content.includes("Roll for Stats")) {
-			
-			let parsed = json.d?.b?.d?.inlinerolls		
-			let has18 = false	
-			if (parsed && typeof parsed === 'object') {
+			let parsed = json.d?.b?.d?.inlinerolls;
+			let has18 = false;
+			if (parsed && typeof parsed === "object") {
 				// Extract the total from each roll and sum them
 				const totalSum = Object.values(parsed).reduce((sum, roll) => {
-					if(roll.results?.total === 18){
-						has18 = true
+					if (roll.results?.total === 18) {
+						has18 = true;
 					}
 					return sum + (roll.results?.total || 0);
 				}, 0);
-				
+
 				window._INTERCEPT.loopTimeout++;
-			
-				$("#displayRolls").text(`Total Sum: ${totalSum} < 90 - Timeout: ${window._INTERCEPT.loopTimeout}/500`);
-			
-				if(totalSum > 90 && has18){
+
+				$("#displayRolls").text(`Total Sum: ${totalSum} < 85 - Timeout: ${window._INTERCEPT.loopTimeout}/500`);
+
+				if (totalSum > 85 && has18) {
 					window._INTERCEPT.loopTimeout = 0;
 					return true;
-				}else{
-					if(window._INTERCEPT.loopTimeout < 500){
+				} else {
+					if (window._INTERCEPT.loopTimeout < 500) {
 						const charSheetFrame = $('iframe[title*="Character sheet"]')[0];
 						if (charSheetFrame && charSheetFrame.contentWindow) {
 							$(charSheetFrame.contentWindow.document).find('[name="roll_rollstats"]').trigger("click");
 						}
-						
 					}
 					return false;
 				}
 			}
 		}
-
-		
 	} catch (error) {
 		console.log("handleIntercept", error);
 		return true;

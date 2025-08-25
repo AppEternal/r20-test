@@ -141,6 +141,8 @@ window._INTERCEPT.displayRolls = async () => {
 				const idx = $(this).data("index");
 				const item = window._INTERCEPT.intercepted[idx];
 				item.continue();
+				// Trigger the toggle intercept button after accepting
+				$("#toggle-intercept").trigger("click");
 			});
 		window._INTERCEPT.updateCountdowns();
 	}
