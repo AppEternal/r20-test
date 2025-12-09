@@ -36,4 +36,14 @@ export default [
 		},
 		plugins: sharedPlugins,
 	},
+	{
+		// Second bundle configuration
+		input: "src/toggleLighting/toggleLight.js",
+		output: {
+			file: "dist/bundleLight.js",
+			format: "iife",
+			name: "bundle3",
+		},
+		plugins: sharedPlugins,
+	},
 ];
